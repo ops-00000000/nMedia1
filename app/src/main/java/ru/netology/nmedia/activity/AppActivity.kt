@@ -5,18 +5,24 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
+import com.bumptech.glide.Glide
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 import com.google.firebase.messaging.FirebaseMessaging
 import ru.netology.nmedia.R
 import ru.netology.nmedia.activity.NewPostFragment.Companion.textArg
+import ru.netology.nmedia.databinding.CardPostBinding
 
 class AppActivity : AppCompatActivity(R.layout.activity_app) {
+
+    private val urls = listOf("netology.jpg", "sber.jpg", "tcs.jpg", "404.png")
+    private var index = 0
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        intent?.let {
+            intent?.let {
             if (it.action != Intent.ACTION_SEND) {
                 return@let
             }

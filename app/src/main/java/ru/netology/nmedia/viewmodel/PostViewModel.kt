@@ -73,9 +73,7 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
     fun likeById(post: Post) {
         thread {
             repository.likeById(post)
-            thread {
                 loadPosts()
-            }
         }
     }
 
